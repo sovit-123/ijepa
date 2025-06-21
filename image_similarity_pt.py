@@ -1,3 +1,8 @@
+"""
+Image similarity using PyTorch implementation with weights downloaded from the
+original repository.
+"""
+
 import torch
 import cv2
 

@@ -1,5 +1,5 @@
 """
-Script to compute image similarity with I-JEPA.
+Image similarity using weights from Hugging Face.
 """
 
 from PIL import Image
