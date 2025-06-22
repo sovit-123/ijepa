@@ -3,4 +3,6 @@
 __pycache__
 
 weights/
-input/
+input/*
+!input/readme.txt
+outputs/

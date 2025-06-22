@@ -3,6 +3,62 @@
 Official PyTorch codebase for I-JEPA (the **Image-based Joint-Embedding Predictive Architecture**) published @ CVPR-23.
 [\[arXiv\]](https://arxiv.org/pdf/2301.08243.pdf) [\[JEPAs\]](https://ai.facebook.com/blog/yann-lecun-advances-in-ai-research/) [\[blogpost\]](https://ai.facebook.com/blog/yann-lecun-ai-model-i-jepa/)
 
+
+
+***This fork contains downstream tasks using I-JEPA models:***
+
+* Image classification
+* Semantic segmentation
+* Image similarity and search
+
+## Updates
+
+* June 22, 2025: Added Linear Image Classification task.
+
+## Image Classification
+
+Check `src/img_cls` folder for all the coding details.
+
+The `train_classifier.py` in the project root directory is the executable script to start the training process.
+
+* Steps to train:
+
+```
+python train_classifier.py --train-dir path/to/directory/with/training/class/folder --valid-dir path/to/directory/with/validation/class/folder --epochs <num_epochs>
+```
+
+```
+python train_classifier.py --help
+usage: train_classifier.py [-h] [-e EPOCHS] [-lr LEARNING_RATE] [-b BATCH_SIZE] [--save-name SAVE_NAME] [--fine-tune] [--out-dir OUT_DIR] [--scheduler SCHEDULER [SCHEDULER ...]]
+                           --train-dir TRAIN_DIR --valid-dir VALID_DIR
+
+options:
+  -h, --help            show this help message and exit
+  -e EPOCHS, --epochs EPOCHS
+                        Number of epochs to train our network for
+  -lr LEARNING_RATE, --learning-rate LEARNING_RATE
+                        Learning rate for training the model
+  -b BATCH_SIZE, --batch-size BATCH_SIZE
+  --save-name SAVE_NAME
+                        file name of the final model to save
+  --fine-tune           whether to fine-tune the model or train the classifier layer only
+  --out-dir OUT_DIR     output sub-directory path inside the `outputs` directory
+  --scheduler SCHEDULER [SCHEDULER ...]
+                        number of epochs after which learning rate scheduler is applied
+  --train-dir TRAIN_DIR
+                        path to the training directory containing class folders in PyTorch ImageFolder format
+  --valid-dir VALID_DIR
+                        path to the validation directory containing class folders in PyTorch ImageFolder format
+```
+
+* Step to run image inference:
+
+```
+python infer_classifier.py --weights <path to the weights.pth file> --input <directory containing inference images>
+```
+
+
+
 ## Method
 I-JEPA is a method for self-supervised learning. At a high level, I-JEPA predicts the representations of part of an image from the representations of other parts of the same image. Notably, this approach learns semantic image features:
 1. without relying on pre-specified invariances to hand-crafted data transformations, which tend to be biased for particular downstream tasks,
