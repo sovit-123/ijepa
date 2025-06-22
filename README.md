@@ -7,7 +7,7 @@ Official PyTorch codebase for I-JEPA (the **Image-based Joint-Embedding Predicti
 
 ***This fork contains downstream tasks using I-JEPA models:***
 
-* Image classification
+* [Image classification](#Image-Classification)
 * Semantic segmentation
 * Image similarity and search
 
@@ -57,7 +57,29 @@ options:
 python infer_classifier.py --weights <path to the weights.pth file> --input <directory containing inference images>
 ```
 
+## Semantic Segmentation
 
+* Training example command:
+
+```
+python train_segmentation.py --train-images voc_2012_segmentation_data/train_images --train-masks voc_2012_segmentation_data/train_labels --valid-images voc_2012_segmentation_data/valid_images --valid-masks voc_2012_segmentation_data/valid_labels --config segmentation_configs/voc.yaml
+```
+
+Check the `segmentation_configs` directory to know more about setting up the configuration YAML files.
+
+Check [this dataset on Kaggle](https://www.kaggle.com/datasets/sovitrath/voc-2012-segmentation-data) to know how the images and masks are structured.
+
+* Image inference using fine-tuned model (use the same configuration YAML file as used during training for the same weights. For example for the above training, we should use `voc.yaml` during inference also.):
+
+```
+python infer_seg_image.py --input <directory/with/images> --model <best_iou_weights.pth> --config <dataset/config.yaml>
+```
+
+* Video inference using fine-tuned model (use the same configuration YAML file as used during training for the same weights. For example for the above training, we should use `voc.yaml` during inference also.):
+
+```
+python infer_seg_video.py --input <path/to/video.mp4> --model <best_iou_weights.pth> --config <dataset/config.yaml>
+```
 
 ## Method
 I-JEPA is a method for self-supervised learning. At a high level, I-JEPA predicts the representations of part of an image from the representations of other parts of the same image. Notably, this approach learns semantic image features:
