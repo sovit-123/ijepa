@@ -8,12 +8,12 @@ Official PyTorch codebase for I-JEPA (the **Image-based Joint-Embedding Predicti
 ***This fork contains downstream tasks using I-JEPA models:***
 
 * [Image classification](#Image-Classification)
-* Semantic segmentation
+* [Semantic segmentation](#Semantic-Segmentation)
 * Image similarity and search
 
 ## Updates
 
-* June 22, 2025: Added Linear Image Classification task.
+* June 22, 2025: Added Linear Image Classification task and Semantic Segmentation task.
 
 ## Image Classification
 
