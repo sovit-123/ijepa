@@ -15,6 +15,10 @@ Official PyTorch codebase for I-JEPA (the **Image-based Joint-Embedding Predicti
 
 * June 22, 2025: Added Linear Image Classification task and Semantic Segmentation task.
 
+## Downloading Weights
+
+Before running any training, [download the weights from here](https://github.com/facebookresearch/ijepa?tab=readme-ov-file#pretrained-models) and put them in the `weights` directory.
+
 ## Image Classification
 
 Check `src/img_cls` folder for all the coding details.
