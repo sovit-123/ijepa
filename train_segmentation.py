@@ -84,12 +84,18 @@ parser.add_argument(
     required=True,
     help='path to the dataset configuration file'
 )
+parser.add_argument(
+    '--out-dir',
+    dest='out_dir',
+    default='img_seg',
+    help='output sub-directory path inside the `outputs` directory'
+)
 args = parser.parse_args()
 print(args)
 
 if __name__ == '__main__':
     # Create a directory with the model name for outputs.
-    out_dir = os.path.join('outputs', 'img_seg')
+    out_dir = os.path.join('outputs', args.out_dir)
     out_dir_valid_preds = os.path.join(out_dir, 'valid_preds')
     os.makedirs(out_dir, exist_ok=True)
     os.makedirs(out_dir_valid_preds, exist_ok=True)

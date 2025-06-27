@@ -52,7 +52,7 @@ parser.add_argument(
 parser.add_argument(
     '--out-dir',
     dest='out_dir',
-    default='outputs',
+    default='img_cls',
     help='output sub-directory path inside the `outputs` directory'
 )
 parser.add_argument(
@@ -141,7 +141,7 @@ def validate(model, testloader, criterion, class_names):
 
 if __name__ == '__main__':
     # Create a directory with the model name for outputs.
-    out_dir = os.path.join(args.out_dir, 'img_cls')
+    out_dir = os.path.join('outputs', args.out_dir)
     os.makedirs(out_dir, exist_ok=True)
     # Load the training and validation datasets.
     dataset_train, dataset_valid, dataset_classes = get_datasets(
