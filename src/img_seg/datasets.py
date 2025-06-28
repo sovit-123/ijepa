@@ -7,8 +7,8 @@ import numpy as np
 from src.img_seg.utils import get_label_mask, set_class_values
 from torch.utils.data import Dataset, DataLoader
 
-MEAN = [0.5, 0.5, 0.5]
-STD = [0.5, 0.5, 0.5]
+IMG_MEAN = (0.485, 0.456, 0.406)
+IMG_STD = (0.229, 0.224, 0.225)
 
 def get_images(train_images, train_masks, valid_images, valid_masks):
     train_images = glob.glob(f"{train_images}/*")
@@ -39,7 +39,7 @@ def train_transforms(img_size):
         A.HorizontalFlip(p=0.5),
         A.RandomBrightnessContrast(p=0.2),
         A.Rotate(limit=25),
-        A.Normalize(mean=MEAN, std=STD, max_pixel_value=255.)
+        A.Normalize(mean=IMG_MEAN, std=IMG_STD, max_pixel_value=255.)
     ], is_check_shapes=False)
     return train_image_transform
 
@@ -56,7 +56,7 @@ def valid_transforms(img_size):
             always_apply=True, 
             interpolation=cv2.INTER_CUBIC
         ),
-        A.Normalize(mean=MEAN, std=STD, max_pixel_value=255.)
+        A.Normalize(mean=IMG_MEAN, std=IMG_STD, max_pixel_value=255.)
     ], is_check_shapes=False)
     return valid_image_transform
 

@@ -6,6 +6,8 @@ from torch.utils.data import DataLoader
 # Required constants.
 IMAGE_SIZE = 256 # Image size of resize when applying transforms.
 NUM_WORKERS = 4 # Number of parallel processes for data preparation.
+IMG_MEAN = (0.485, 0.456, 0.406)
+IMG_STD = (0.229, 0.224, 0.225)
 
 # Training transforms
 def get_train_transform(image_size):
@@ -15,8 +17,8 @@ def get_train_transform(image_size):
         transforms.RandomHorizontalFlip(p=0.5),
         transforms.ToTensor(),
         transforms.Normalize(
-            mean=[0.5, 0.5, 0.5],
-            std=[0.5, 0.5, 0.5]
+            mean=IMG_MEAN,
+            std=IMG_STD
         )
     ])
     return train_transform
@@ -28,8 +30,8 @@ def get_valid_transform(image_size):
         transforms.CenterCrop((224, 224)),
         transforms.ToTensor(),
         transforms.Normalize(
-            mean=[0.5, 0.5, 0.5],
-            std=[0.5, 0.5, 0.5]
+            mean=IMG_MEAN,
+            std=IMG_STD
         )
     ])
     return valid_transform

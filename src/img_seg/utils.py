@@ -59,10 +59,8 @@ def draw_translucent_seg_maps(
     This function color codes the segmentation maps that is generated while
     validating. THIS IS NOT TO BE CALLED FOR SINGLE IMAGE TESTING
     """
-    # IMG_MEAN = [0.485, 0.456, 0.406]
-    # IMG_STD = [0.229, 0.224, 0.225]
-    IMG_MEAN = [0.5, 0.5, 0.5]
-    IMG_STD = [0.5, 0.5, 0.5]
+    IMG_MEAN = [0.485, 0.456, 0.406]
+    IMG_STD = [0.229, 0.224, 0.225]
     alpha = 1 # how much transparency
     beta = 0.8 # alpha + beta should be 1
     gamma = 0 # contrast
