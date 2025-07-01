@@ -80,7 +80,6 @@ def inference(model, testloader, device, orig_image):
     model.eval()
     counter = 0
 
-    print('Before forward pass')
     with torch.no_grad():
         counter += 1
         image = testloader
@@ -89,7 +88,6 @@ def inference(model, testloader, device, orig_image):
         # Forward pass.
         outputs = model(image)
 
-    print('After forward pass')
     # Softmax probabilities.
     predictions = F.softmax(outputs, dim=1).cpu().numpy()
     # Predicted class number.
