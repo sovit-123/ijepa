@@ -77,7 +77,7 @@ parser.add_argument(
     '--valid-masks',
     dest='valid_masks',
     required=True,
-    help='path to training images'
+    help='path to validation masks'
 )
 parser.add_argument(
     '--config',
@@ -103,7 +103,6 @@ if __name__ == '__main__':
     # Set configurations.
     with open(args.config, 'r') as f:
         config = yaml.safe_load(f)
-        f.close()
     
     ALL_CLASSES = config['ALL_CLASSES']
     LABEL_COLORS_LIST = config['LABEL_COLORS_LIST']
