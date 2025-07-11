@@ -34,7 +34,7 @@ def train_transforms(img_size):
             img_size[1], 
             img_size[0], 
             always_apply=True,
-            interpolation=cv2.INTER_CUBIC
+            # interpolation=cv2.INTER_CUBIC
         ),
         A.HorizontalFlip(p=0.5),
         A.RandomBrightnessContrast(p=0.2),
@@ -54,7 +54,7 @@ def valid_transforms(img_size):
         A.Resize(
             img_size[1], img_size[0], 
             always_apply=True, 
-            interpolation=cv2.INTER_CUBIC
+            # interpolation=cv2.INTER_CUBIC
         ),
         A.Normalize(mean=IMG_MEAN, std=IMG_STD, max_pixel_value=255.)
     ], is_check_shapes=False)
