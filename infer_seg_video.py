@@ -110,10 +110,10 @@ while cap.isOpened:
             lineType=cv2.LINE_AA
         )
         out.write(outputs)
-        # cv2.imshow('Image', outputs)
+        cv2.imshow('Image', outputs)
         # Press `q` to exit
-        # if cv2.waitKey(1) & 0xFF == ord('q'):
-            # break
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
     else:
         break
 

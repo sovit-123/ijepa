@@ -17,3 +17,5 @@
 * `input/inference_data/videos/`
     * `video_1.mp4`: Video by Pixabay: https://www.pexels.com/video/woman-by-the-shore-856803/
         * https://www.pexels.com/video/woman-by-the-shore-856803/
+    * `video_2.mp4`: Video by QboxVisuals India: https://www.pexels.com/video/traffic-in-a-narrow-street-2843866/
+        * https://www.pexels.com/video/traffic-in-a-narrow-street-2843866/
